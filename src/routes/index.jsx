@@ -9,9 +9,11 @@ import Layout from "../components/Layout";
 export default function index()
 {
 	const [userData, setUserData] = useState({});
-	const url = "/api/v1/auth/data";
+	const url = "http://localhost:3000/api/v1/auth/data";
 	useEffect(() => {
-		fetch(url).then((response) => {
+		fetch(url, {
+  credentials: "include"
+}).then((response) => {
 		if(response.ok) {
 			return response.json();
 		}

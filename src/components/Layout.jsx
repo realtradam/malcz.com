@@ -12,10 +12,10 @@ export default function Layout ({userData})
 	// so the app would be broken when served on the isolated domain
 	const domain = window.location.host;
 	console.log(domain);
-	if(domain === "localhost:3000")
-	{
-		window.location.replace("http://127.0.0.1:3000");
-	}
+	//if(domain === "localhost:3000")
+	//{
+	//	window.location.replace("http://127.0.0.1:3000");
+	//}
 
 	return (
 	<>
