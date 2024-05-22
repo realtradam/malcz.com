@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+
+@layer components {
+.btn-primary {
+@apply py-2 px-4 bg-blue-200;
+}
+}
+
+ */
+.gameCard {
+	aspect-ratio: 5/7;
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  perspective: 2500px;
+}
+
+.gameCardCoverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.gameCardWrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  box-shadow: -15px 15px 32px -8px rgba(0, 0, 0, 0.75)
+}
+
+.gameCard:hover .gameCardWrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: -10px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.gameCardWrapper::before,
+.gameCardWrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.gameCardWrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.gameCardWrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.gameCard:hover .gameCardWrapper::before,
+.gameCardWrapper::after {
+  opacity: 1;
+}
+
+.gameCard:hover .gameCardWrapper::after {
+  height: 120px;
+}
+.gameTitleImg {
+  width: 100%;
+  transition: transform 0.5s;
+  image-rendering: pixelated;
+}
+.gameCard:hover .gameTitleImg {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.gameCharacterImg {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+  image-rendering: pixelated;
+}
+
+.gameCard:hover .gameCharacterImg {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+
+@keyframes pan {
+	0% {
+		background-position: 0% 0%;
+	}
+	100% {
+		background-position: 340px -170px;
+	}
+}
+
+#radial-wrap {
+	background: linear-gradient(90deg, rgba(251,191,36,1) 1%, rgba(251,191,36,0) 10%, rgba(251,191,36,0) 90%, rgba(251,191,36,1) 99%);
+}
+
+.button:hover::before {
+	width: 5000px;
+}
+
+@keyframes buttonSpin {
+  from {
+    transform: rotate(32deg);
+  }
+  to {
+    transform: rotate(calc(360deg + 32deg));
+    filter: hue-rotate(360deg);
+  }
+}
+
+.contact { transition: opacity 1s ease; position: absolute;}
+.contact + .contact,
+ a:hover .contact:first-child { opacity: 0; } 
+ a:hover .contact:first-child + .contact { opacity: 1; }
+.contact + .contact { pointer-events: none; }
+
+@layer utilities {
+	.star {
+		animation: pan 80s linear infinite;
+	}
+	.sawtooth-right {
+		clip-path: polygon(0% -1%, -1% 100.0%, 101% 98.0%, -1% 96.0%, 101% 94.0%, -1% 92.0%, 101% 90.0%, -1% 88.0%, 101% 86.0%, -1% 84.0%, 101% 82.0%, -1% 80.0%, 101% 78.0%, -1% 76.0%, 101% 74.0%, -1% 72.0%, 101% 70.0%, -1% 68.0%, 101% 66.0%, -1% 64.0%, 101% 62.0%, -1% 60.0%, 101% 58.0%, -1% 56.0%, 101% 54.0%, -1% 52.0%, 101% 50.0%, -1% 48.0%, 101% 46.0%, -1% 44.0%, 101% 42.0%, -1% 40.0%, 101% 38.0%, -1% 36.0%, 101% 34.0%, -1% 32.0%, 101% 30.0%, -1% 28.0%, 101% 26.0%, -1% 24.0%, 101% 22.0%, -1% 20.0%, 101% 18.0%, -1% 16.0%, 101% 14.0%, -1% 12.0%, 101% 10.0%, -1% 8.0%, 101% 6.0%, -1% 4.0%, 101% 2.0%);
+	}
+	.sawtooth-left {
+		clip-path: polygon(102% 0%, 102% 100.0%, 0% 98.0%, 100% 96.0%, 0% 94.0%, 100% 92.0%, 0% 90.0%, 100% 88.0%, 0% 86.0%, 100% 84.0%, 0% 82.0%, 100% 80.0%, 0% 78.0%, 100% 76.0%, 0% 74.0%, 100% 72.0%, 0% 70.0%, 100% 68.0%, 0% 66.0%, 100% 64.0%, 0% 62.0%, 100% 60.0%, 0% 58.0%, 100% 56.0%, 0% 54.0%, 100% 52.0%, 0% 50.0%, 100% 48.0%, 0% 46.0%, 100% 44.0%, 0% 42.0%, 100% 40.0%, 0% 38.0%, 100% 36.0%, 0% 34.0%, 100% 32.0%, 0% 30.0%, 100% 28.0%, 0% 26.0%, 100% 24.0%, 0% 22.0%, 100% 20.0%, 0% 18.0%, 100% 16.0%, 0% 14.0%, 100% 12.0%, 0% 10.0%, 100% 8.0%, 0% 6.0%, 100% 4.0%, 0% 2.0%);
+	}
+	.sawtooth-left-wrap {
+		filter: drop-shadow(-10px 5px 4px rgba(0, 0, 0, 0.8));
+	}
+}
