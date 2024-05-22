@@ -6,17 +6,6 @@ export default function Layout ({userData})
 	console.log(userData);
 	//const [userData, setUserData] = useState({ name: "" });
 	
-	// if the user tries to access the isolated domain then we redirect them
-	// this is NOT done for security, only for good UX
-	// rails serves the react app no matter what
-	// so the app would be broken when served on the isolated domain
-	const domain = window.location.host;
-	console.log(domain);
-	//if(domain === "localhost:3000")
-	//{
-	//	window.location.replace("http://127.0.0.1:3000");
-	//}
-
 	return (
 	<>
 		<div id="page" className="star flex flex-row min-h-screen max-h-screen bg-amber-400 text-stone-950 text-xl bg-star bg-repeat bg-[length:170px_170px]">

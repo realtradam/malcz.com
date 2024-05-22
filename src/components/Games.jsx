@@ -7,13 +7,13 @@ import Button from "./Button";
 export default function Games () {
 	const [games, setGames] = useState([]);
 	useEffect(() => {
-		const url = "/api/v1/games";
+		const url = `${import.meta.env.VITE_API_TITLE}/api/v1/games`;
 		fetch(url).then((response) => {
 			if (response.ok) {
 				return response.json();
 			}
 			throw new Error("Network response was not ok.");
-		}).then((response) => setGames(response)).catch(() => navigate("/"));
+		}).then((response) => setGames(response))//.catch(() => navigate("/"));
 	}, []);
 	const allGames = games.map((game) => (
 		<GameCard game={game} key={game.id}/>
@@ -35,7 +35,7 @@ export default function Games () {
 			console.log(pair[0] + ', ' + pair[1])
 		};
 
-		fetch('http://127.0.0.1:3000/api/v1/games', {
+		fetch('${import.meta.env.VITE_API_TITLE}/api/v1/games', {
 			method: 'post',
 			body: formData,
 		});

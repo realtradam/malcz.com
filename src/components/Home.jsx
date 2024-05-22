@@ -15,7 +15,7 @@ export default function Home () {
 			console.log(pair[0] + ', ' + pair[1])
 		};
 
-		fetch('http://127.0.0.1:3000/api/v1/games', {
+		fetch('${import.meta.env.VITE_API_TITLE}/api/v1/games', {
 			method: 'post',
 			body: formData,
 		});
@@ -24,11 +24,11 @@ export default function Home () {
 		<>
 		<div>
 		<div className="flex flex-col gap-16 max-w-6xl shrink">
-			<div className="title font-bold text-6xl font-title">Get To Know Me a Little</div>
+			<div className="title font-bold text-6xl font-title">Work In Progress</div>
 			<div className="">
 				<div className="jumbotron jumbotron-fluid bg-transparent">
 					<div className="container secondary-color">
-						<h1 className="text-2xl">Debug! Again</h1>
+						<h1 className="text-2xl"> API at: { import.meta.env.VITE_API_TITLE } </h1>
 						<p className="">
 Ea optio vitae culpa voluptatem consectetur. Ab quisquam sed ipsum. Perspiciatis minus odit quas qui consequuntur dicta reiciendis a. Nihil minima sed aliquam.
 		</p>

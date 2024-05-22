@@ -9,7 +9,7 @@ import Layout from "../components/Layout";
 export default function index()
 {
 	const [userData, setUserData] = useState({});
-	const url = "http://localhost:3000/api/v1/auth/data";
+	const url = `${import.meta.env.VITE_API_TITLE}/api/v1/auth/data`;
 	useEffect(() => {
 		fetch(url, {
   credentials: "include"

@@ -6,7 +6,7 @@ const Blogs = () => {
 	const [blogs, setBlogs] = useState([]);
 
 	useEffect(() => {
-		const url = "/api/v1/blogs/index";
+		const url = `${import.meta.env.VITE_API_TITLE}/api/v1/blogs/index`;
 		fetch(url).then((response) => {
 			if (response.ok) {
 				return response.json();
