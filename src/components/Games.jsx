@@ -16,13 +16,14 @@ export default function Games () {
 		}).then((response) => setGames(response))//.catch(() => navigate("/"));
 	}, []);
 	const allGames = games.map((game) => (
-		<GameCard game={game} key={game.id}/>
+		<GameCard link={`/game/${game.titleSlug}`} game={game} key={game.id}/>
 	));
 	var handleSubmit = (e) => {
 		e.preventDefault() //stops submit from happening
 		const form = e.target;
 		const formData = new FormData()
 		formData.append('game[title]', form.title.value)
+		formData.append('game[img_rendering]', form.img_rendering.value)
 		for(let i =0; i < form.game_files.files.length; i++)
 		{
 		formData.append('game[game_files][]', form.game_files.files[i], form.game_files.files[i].value);
@@ -35,7 +36,7 @@ export default function Games () {
 			console.log(pair[0] + ', ' + pair[1])
 		};
 
-		fetch('${import.meta.env.VITE_API_TITLE}/api/v1/games', {
+		fetch(`${import.meta.env.VITE_API_TITLE}/api/v1/games`, {
 			method: 'post',
 			body: formData,
 		});
@@ -52,6 +53,13 @@ export default function Games () {
 				<div>
 				<label>Title</label>
 				<input type="text" name="title" />
+				</div>
+				<div>
+				<label>Image Rendering</label>
+				<select name="img_rendering">
+					<option value="pixelated">Pixelated</option>
+					<option value="crisp-edges">Crisp Edges</option>
+				</select>
 				</div>
 				<div>
 				<label>Files</label>
@@ -77,14 +85,8 @@ export default function Games () {
 				</div>
 		</div>
 			</div>
-			{ allGames }
 			<div className="flex flex-row flex-wrap gap-20 justify-around">
-				<GameCard />
-				<GameCard />
-				<GameCard />
-				<GameCard />
-				<GameCard />
-				<GameCard />
+			{ allGames }
 			</div>
 		</div>
 		</div>

@@ -13,96 +13,102 @@
  */
 .gameCard {
 	aspect-ratio: 5/7;
-  width: 300px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  perspective: 2500px;
+	width: 300px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	perspective: 2500px;
 }
 
 .gameCardCoverImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  image-rendering: pixelated;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/*image-rendering: pixelated;*/
+	border-radius: 5px;
 }
 
 .gameCardWrapper {
-  transition: all 0.5s;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-  box-shadow: -15px 15px 32px -8px rgba(0, 0, 0, 0.75)
+	transition: all 0.5s;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	box-shadow: -15px 15px 32px -8px rgba(0, 0, 0, 0.75);
+	border-radius: 5px;
 }
 
 .gameCard:hover .gameCardWrapper {
-  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
-  box-shadow: -10px 35px 32px -8px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+	transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+	box-shadow: -10px 35px 32px -8px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
 }
 
 .gameCardWrapper::before,
 .gameCardWrapper::after {
-  content: "";
-  opacity: 0;
-  width: 100%;
-  height: 80px;
-  transition: all 0.5s;
-  position: absolute;
-  left: 0;
+	content: "";
+	opacity: 0;
+	width: 100%;
+	height: 80px;
+	transition: all 0.5s;
+	position: absolute;
+	left: 0;
+	border-radius: 5px;
 }
 .gameCardWrapper::before {
-  top: 0;
-  height: 100%;
-  background-image: linear-gradient(
-    to top,
-    transparent 46%,
-    rgba(12, 13, 19, 0.5) 68%,
-    rgba(12, 13, 19) 97%
-  );
+	top: 0;
+	height: 100%;
+	background-image: linear-gradient(
+	to top,
+	transparent 46%,
+	rgba(12, 13, 19, 0.5) 68%,
+	rgba(12, 13, 19) 97%
+	);
+	border-radius: 5px;
 }
 .gameCardWrapper::after {
-  bottom: 0;
-  opacity: 1;
-  background-image: linear-gradient(
-    to bottom,
-    transparent 46%,
-    rgba(12, 13, 19, 0.5) 68%,
-    rgba(12, 13, 19) 97%
-  );
+	bottom: 0;
+	opacity: 1;
+	background-image: linear-gradient(
+	to bottom,
+	transparent 46%,
+	rgba(12, 13, 19, 0.5) 68%,
+	rgba(12, 13, 19) 97%
+	);
+	border-radius: 5px;
 }
 
 .gameCard:hover .gameCardWrapper::before,
 .gameCardWrapper::after {
-  opacity: 1;
+	opacity: 1;
 }
 
 .gameCard:hover .gameCardWrapper::after {
-  height: 120px;
+	height: 120px;
 }
 .gameTitleImg {
-  width: 100%;
-  transition: transform 0.5s;
-  image-rendering: pixelated;
+	width: 100%;
+	transition: transform 0.5s;
+	/*image-rendering: pixelated;*/
 }
 .gameCard:hover .gameTitleImg {
-  transform: translate3d(0%, -50px, 100px);
+	transform: translate3d(0%, -50px, 100px);
 }
 
 .gameCharacterImg {
-  width: 100%;
-  opacity: 0;
-  transition: all 0.5s;
-  position: absolute;
-  z-index: -1;
-  image-rendering: pixelated;
+	width: 100%;
+	opacity: 0;
+	transition: all 0.5s;
+	position: absolute;
+	z-index: -1;
+	/*image-rendering: pixelated;*/
 }
 
 .gameCard:hover .gameCharacterImg {
-  opacity: 1;
-  transform: translate3d(0%, -30%, 100px);
+	opacity: 1;
+	transform: translate3d(0%, -30%, 100px);
 }
 
 @keyframes pan {
@@ -123,19 +129,19 @@
 }
 
 @keyframes buttonSpin {
-  from {
-    transform: rotate(32deg);
-  }
-  to {
-    transform: rotate(calc(360deg + 32deg));
-    filter: hue-rotate(360deg);
-  }
+	from {
+		transform: rotate(32deg);
+	}
+	to {
+		transform: rotate(calc(360deg + 32deg));
+		filter: hue-rotate(360deg);
+	}
 }
 
 .contact { transition: opacity 1s ease; position: absolute;}
 .contact + .contact,
- a:hover .contact:first-child { opacity: 0; } 
- a:hover .contact:first-child + .contact { opacity: 1; }
+a:hover .contact:first-child { opacity: 0; } 
+a:hover .contact:first-child + .contact { opacity: 1; }
 .contact + .contact { pointer-events: none; }
 
 @layer utilities {

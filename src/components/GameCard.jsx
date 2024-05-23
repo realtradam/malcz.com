@@ -15,10 +15,10 @@ export default function GameCard ({ link = "./", width = "72", game = { card_img
 		<a href={ link } className="block w-min pt-10 px-1" target="_blank">
 			<div className="gameCard">
 				<div className="gameCardWrapper">
-					<img src={`${import.meta.env.VITE_API_TITLE}/api/v1/games_img/realtradam/${game.titleSlug}.png?type=card`} className="gameCardCoverImg" />
+					<img style={{imageRendering: game.img_rendering}} src={`${import.meta.env.VITE_API_TITLE}/api/v1/games_img/realtradam/${game.titleSlug}.png?type=card`} className="gameCardCoverImg" />
 				</div>
-					<img src={`${import.meta.env.VITE_API_TITLE}/api/v1/games_img/realtradam/${game.titleSlug}.png?type=title`} className="gameTitleImg p-5%" />
-					<img src={`${import.meta.env.VITE_API_TITLE}/api/v1/games_img/realtradam/${game.titleSlug}.png?type=char`} className="gameCharacterImg" />
+					<img style={{imageRendering: game.img_rendering}} src={`${import.meta.env.VITE_API_TITLE}/api/v1/games_img/realtradam/${game.titleSlug}.png?type=title`} className="gameTitleImg p-5%" />
+					<img style={{imageRendering: game.img_rendering}} src={`${import.meta.env.VITE_API_TITLE}/api/v1/games_img/realtradam/${game.titleSlug}.png?type=char`} className="gameCharacterImg" />
 			</div>
 		</a>
 		</>

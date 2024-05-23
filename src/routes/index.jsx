@@ -29,7 +29,8 @@ export default function index()
 					<Route index element={<Home />} />
 					<Route path="/blogs" element={<Blogs />} />
 					<Route path="/games" element={<Games />} />
-					<Route path="/games/:user/:game" element={<Game />} />
+					{/*<Route path="/games/upload" element={<GamesUpload />} />*/}
+					<Route path="/game/:game" element={<Game />} />
 				</Route>
 			</Routes>
 		</Router>
