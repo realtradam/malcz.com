@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 //import { Link } from "react-router-dom";
 import GameCard from "./GameCard";
 import Button from "./Button";
+import { GameType } from "../types";
 
-//export default () => (
+
 export default function Games () {
-	const [games, setGames] = useState([]);
+	const [games, setGames] = useState<GameType[]>([]);
+
+	// old method
 	useEffect(() => {
 		const url = `${import.meta.env.VITE_API_TITLE}/api/v1/games`;
 		fetch(url).then((response) => {
@@ -13,34 +16,48 @@ export default function Games () {
 				return response.json();
 			}
 			throw new Error("Network response was not ok.");
-		}).then((response) => setGames(response))//.catch(() => navigate("/"));
+		}).then((response) => setGames(response)); //.catch(() => navigate("/"));
 	}, []);
+
 	const allGames = games.map((game) => (
 		<GameCard link={`/game/${game.titleSlug}`} game={game} key={game.id}/>
 	));
-	var handleSubmit = (e) => {
-		e.preventDefault() //stops submit from happening
-		const form = e.target;
-		const formData = new FormData()
-		formData.append('game[title]', form.title.value)
-		formData.append('game[img_rendering]', form.img_rendering.value)
-		for(let i =0; i < form.game_files.files.length; i++)
-		{
-		formData.append('game[game_files][]', form.game_files.files[i], form.game_files.files[i].value);
-		}
-		formData.append('game[card_img]', form.card_img.files[0], form.card_img.value);
-		formData.append('game[char_img]', form.char_img.files[0], form.char_img.value);
-		formData.append('game[title_img]', form.title_img.files[0], form.title_img.value);
 
-		for (var pair of formData.entries()) {
-			console.log(pair[0] + ', ' + pair[1])
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault(); //stops submit from happening
+
+		const target = e.target as typeof e.target & {
+			title: { value: string };
+			img_rendering: { value: string };
+			//game_files: { files: FileList };
+			zip: { value: string, files: FileList };
+			card_img: { value: string, files: FileList };
+			char_img: { value: string, files: FileList };
+			title_img: { value: string, files: FileList };
 		};
+
+		//const form = e.target;
+		const formData = new FormData();
+		formData.append('game[title]', target.title.value);
+		formData.append('game[img_rendering]', target.img_rendering.value);
+		//for(let i =0; i < target.game_files.files.length; i++)
+		//{
+		//formData.append('game[game_files][]', target.game_files.files[i], target.game_files.files[i].name);
+		//}
+		formData.append('game[zip]', target.zip.files[0], target.zip.value);
+		formData.append('game[card_img]', target.card_img.files[0], target.card_img.value);
+		formData.append('game[char_img]', target.char_img.files[0], target.char_img.value);
+		formData.append('game[title_img]', target.title_img.files[0], target.title_img.value);
+
+		//for (var pair of formData.entries()) {
+		//	//console.log(pair[0] + ', ' + pair[1])
+		//};
 
 		fetch(`${import.meta.env.VITE_API_TITLE}/api/v1/games`, {
 			method: 'post',
 			body: formData,
 		});
-	}
+	};
 	return(
 		<>
 		<div>
@@ -61,9 +78,13 @@ export default function Games () {
 					<option value="crisp-edges">Crisp Edges</option>
 				</select>
 				</div>
-				<div>
+				{ /*<div>
 				<label>Files</label>
-				<input type="file" multiple="multiple" name="game_files" />
+				<input type="file" multiple name="game_files" />
+				</div> */ }
+				<div>
+				<label>Zip</label>
+				<input type="file" name="zip" />
 				</div>
 				<div>
 				<label>Card Image</label>
@@ -92,4 +113,4 @@ export default function Games () {
 		</div>
 		</>
 	);
-};
+}

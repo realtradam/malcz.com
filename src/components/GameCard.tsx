@@ -1,5 +1,6 @@
-import React from "react";
+//import React from "react";
 //import { Link } from "react-router-dom";
+import { GameCardProps } from "../types";
 
 //game = {
 //	card_img: "",
@@ -7,7 +8,7 @@ import React from "react";
 //	title_img: ""
 //}
 
-export default function GameCard ({ link = "./", width = "72", game = { card_img: "https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg", char_img: "https://ggayane.github.io/css-experiments/cards/dark_rider-character.png", title_img: "https://ggayane.github.io/css-experiments/cards/dark_rider-title.png" } }) 
+export default function GameCard ({ link, game }: GameCardProps) 
 {
 	
 	return (
@@ -22,5 +23,5 @@ export default function GameCard ({ link = "./", width = "72", game = { card_img
 			</div>
 		</a>
 		</>
-	)
-};
+	);
+}

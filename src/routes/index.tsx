@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../components/Home";
 import Blogs from "../components/Blogs";
 import Games from "../components/Games";
+import UploadGame from "../components/UploadGame";
 import Game from "../components/Game";
 import Layout from "../components/Layout";
 
-export default function index()
+export default function Index()
 {
 	const [userData, setUserData] = useState({});
-	const url = `${import.meta.env.VITE_API_TITLE}/api/v1/auth/data`;
 	useEffect(() => {
+		const url = `${import.meta.env.VITE_API_TITLE}/api/v1/auth/data`;
 		fetch(url, {
   credentials: "include"
 }).then((response) => {
@@ -29,6 +30,7 @@ export default function index()
 					<Route index element={<Home />} />
 					<Route path="/blogs" element={<Blogs />} />
 					<Route path="/games" element={<Games />} />
+					<Route path="/games/upload" element={<UploadGame />} />
 					{/*<Route path="/games/upload" element={<GamesUpload />} />*/}
 					<Route path="/game/:game" element={<Game />} />
 				</Route>

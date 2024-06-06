@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 //<Route path="/game/:game" element={<Game />} />
 
 //export default () => (
 export default function Games () {
-	let { user, game } = useParams();
+	const { game } = useParams();
 //http://%{VITE_API_TITLE}/api/v1/game/realtradam/orc-arena-of-time/index.html
 	return(
 		<>
@@ -17,4 +17,4 @@ export default function Games () {
 			</div>
 		</>
 	);
-};
+}

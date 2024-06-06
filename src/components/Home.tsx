@@ -1,25 +1,7 @@
-import React, { } from "react";
 //import { Link } from "react-router-dom";
-import GameCard from "./GameCard";
 
 //export default () => (
 export default function Home () {
-	var handleSubmit = (e) => {
-		e.preventDefault() //stops submit from happening
-
-		const formData = new FormData()
-		formData.append('game[title]', e.target.title.value)
-		formData.append('game[game_file]', e.target.game_file.files[0], e.target.game_file.value)
-
-		for (var pair of formData.entries()) {
-			console.log(pair[0] + ', ' + pair[1])
-		};
-
-		fetch('${import.meta.env.VITE_API_TITLE}/api/v1/games', {
-			method: 'post',
-			body: formData,
-		});
-	}
 	return(
 		<>
 		<div>
@@ -40,4 +22,4 @@ Ea optio vitae culpa voluptatem consectetur. Ab quisquam sed ipsum. Perspiciatis
 		</div>
 		</>
 	);
-};
+}

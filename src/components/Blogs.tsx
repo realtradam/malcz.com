@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Blogs = () => {
 	const navigate = useNavigate();
-	const [blogs, setBlogs] = useState([]);
+	const [blogs, setBlogs] = useState<any[]>([]); // eslint-disable-line @typescript-eslint/no-explicit-any
+
 
 	useEffect(() => {
 		const url = `${import.meta.env.VITE_API_TITLE}/api/v1/blogs/index`;
@@ -13,7 +15,7 @@ const Blogs = () => {
 			}
 			throw new Error("Network response was not ok.");
 		}).then((response) => setBlogs(response)).catch(() => navigate("/"));
-	}, []);
+	}, [navigate]);
 
 	const allBlogs = blogs.map((blog, index) => (
 		<div key={index} className="col-md-6 col-lg-4">
