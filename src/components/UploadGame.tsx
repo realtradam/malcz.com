@@ -1,10 +1,35 @@
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import Button from "./Button";
 import ReactMarkdown from 'react-markdown';
+import { TagPicker } from 'rsuite';
 
+type platformTag = {
+	label: string
+	value: string
+};
+
+type platformTagRaw = {
+	name: string
+};
 
 export default function UploadGame () {
 	const [markdownInput, setMarkdownInput] = useState<string>("");
+	const [platformTags, setPlatformTags] = useState<platformTag[]>([]);
+	const [platformTagsData, setPlatformTagsData] = useState<string[]>([]);
+
+	useEffect(() => {
+		const url = `${import.meta.env.VITE_API_TITLE}/api/v1/tags?tag_type=platform`;
+		fetch(url).then((response) => {
+			if (response.ok) {
+				return response.json();
+			}
+			throw new Error("Network response was not ok.");
+		}).then((response) => setPlatformTags(
+			response.map(
+				(item: platformTagRaw) => ({ label: item.name, value: item.name })
+			)
+		)); //.catch(() => navigate("/"));
+	}, []);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault(); //stops submit from happening
@@ -34,6 +59,13 @@ export default function UploadGame () {
 		formData.append('game[title_img]', target.title_img.files[0], target.title_img.value);
 		formData.append('game[github_link]', target.github_link.value);
 		formData.append('game[status]', `${target.status.value}`);
+		console.log("before the for loop");
+		for(let i = 0; i < platformTagsData.length; i++)
+		{
+			console.log(platformTagsData[i]);
+			formData.append('game[platform_tag][]', platformTagsData[i]);
+		}
+		console.log("after the for loop");
 
 		fetch(`${import.meta.env.VITE_API_TITLE}/api/v1/games`, {
 			credentials: 'include',
@@ -61,7 +93,7 @@ export default function UploadGame () {
 					className="min-h-32 grow p-4"
 					name="description"
 					value={markdownInput}
-					onChange={(e) => setMarkdownInput(e.target.value)}
+					onChange={(data) => setMarkdownInput(data.target.value)}
 				/>
 				</div>
 				<div className="flex flex-col">
@@ -75,6 +107,14 @@ export default function UploadGame () {
 				<div className="flex flex-col">
 				<label>Github Link</label>
 				<input type="text" name="github_link" />
+				</div>
+				<div className="flex flex-col">
+				<label>Tags</label>
+				<TagPicker
+					data={platformTags}
+					style={{ width: 300 }}
+					onChange={(items) => setPlatformTagsData(items)}
+				/>
 				</div>
 				<div className="flex flex-col">
 				<label>Image Rendering</label>
