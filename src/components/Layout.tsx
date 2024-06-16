@@ -6,7 +6,7 @@ export type userData = { userData: { name: string } };
 export default function Layout ({userData}: userData) 
 {
 	return (
-	<div className="text-3xl py-10 text-center font-title">
+	<>
 		<div id="page" className="star flex flex-row min-h-screen max-h-screen bg-amber-400 text-stone-950 text-xl bg-star bg-repeat bg-[length:170px_170px]">
 			<div id="sidebar" className="flex flex-row shrink-0 grow-0 h-vh w-64 items-top bg-stone-800">
 				<nav id="sidebar-content" dir="rtl" className="text-stone-50 p-6 w-full h-screen overflow-y-auto overflow-x-hidden">
