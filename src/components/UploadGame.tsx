@@ -123,32 +123,28 @@ export default function UploadGame () {
 					<option value="pixelated">Pixelated</option>
 				</select>
 				</div>
-				{ /*<div>
-				<label>Files</label>
-				<input type="file" multiple name="game_files" />
-				</div> */ }
 				<div className="flex flex-col">
-				<label>Game Zip</label>
-				<input type="file" name="zip" />
+					<label>Game Zip</label>
+					<input type="file" name="zip" />
 				</div>
 				<div className="flex flex-col">
-				<label>Card Image</label>
-				<input type="file" name="card_img" />
+					<label>Card Image</label>
+					<input type="file" name="card_img" />
 				</div>
 				<div className="flex flex-col">
-				<label>Character Image</label>
-				<input type="file" name="char_img" />
+					<label>Character Image</label>
+					<input type="file" name="char_img" />
 				</div>
 				<div className="flex flex-col">
-				<label>Title Image</label>
-				<input type="file" name="title_img" />
+					<label>Title Image</label>
+					<input type="file" name="title_img" />
 				</div>
 				<div className="flex flex-col">
-				<label>Status</label>
-				<select name="status">
-					<option value="0">Draft</option>
-					<option value="1">Published</option>
-				</select>
+					<label>Status</label>
+					<select name="status">
+						<option value="0">Draft</option>
+						<option value="1">Published</option>
+					</select>
 				</div>
 				<div style={{ boxShadow: 'rgba(255,255,255,.1) 0 1px 0,rgba(0,0,0,.8) 0 1px 7px 0 inset' }} className="p-[5px] w-min h-min bg-stone-800 rounded-[5px]">
 					<Button width={ 28 } height={ 12 } link={ <button type="submit" className="w-28 h-12 bg-stone-transparent text-stone-50 rounded">Submit</button> }/>

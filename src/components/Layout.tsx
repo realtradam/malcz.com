@@ -13,7 +13,7 @@ export default function Layout ({userData}: userData)
 		<div dir='ltr'>
 					{ userData.name ? <div className="flex items-end gap-2 pb-2"> <div className="text-xs"> Logged in as: </div> <div>{userData.name}</div> </div> : <a href="https://github.com/login/oauth/authorize?client_id=74468ad0847e527262d9" className="pb-2"> Login with Github </a> }
 					<div className="text-3xl py-10 text-center font-title">Tradam</div>
-					<div className="flex flex-col items-center gap-1 w-full">
+					<div className="flex flex-col items-center gap-1">
 							<Button link={ <Link to="/" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">About Me</div></Link> }/>
 							<Button link={ <Link to="/blogs" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">Blog</div></Link> }/>
 							<Button link={ <Link to="/games" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">Games</div></Link> }/>
