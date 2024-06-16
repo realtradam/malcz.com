@@ -9,7 +9,7 @@ import Layout from "../components/Layout";
 
 export default function Index()
 {
-	const [userData, setUserData] = useState({});
+	const [userData, setUserData] = useState({ name: '' });
 	useEffect(() => {
 		const url = `${import.meta.env.VITE_API_TITLE}/api/v1/auth/data`;
 		fetch(url, {
