@@ -1,7 +1,7 @@
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect } from "react";
 //import { Link } from "react-router-dom";
 import GameCard from "./GameCard";
-import Button from "./Button";
+//import Button from "./Button";
 import { GameType } from "../types";
 
 
