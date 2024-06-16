@@ -6,12 +6,12 @@ export type userData = { userData: { name: string } };
 export default function Layout ({userData}: userData) 
 {
 	return (
-	<>
+	<div className="text-3xl py-10 text-center font-title">
 		<div id="page" className="star flex flex-row min-h-screen max-h-screen bg-amber-400 text-stone-950 text-xl bg-star bg-repeat bg-[length:170px_170px]">
 			<div id="sidebar" className="flex flex-row shrink-0 grow-0 h-vh w-64 items-top bg-stone-800">
 				<nav id="sidebar-content" dir="rtl" className="text-stone-50 p-6 w-full h-screen overflow-y-auto overflow-x-hidden">
 		<div dir='ltr'>
-					{ userData.name ? <div className="flex items-end gap-2 pb-2"> <div className="text-xs"> Logged in as: </div> <div>{userData.name}</div> </div> : <a href="https://github.com/login/oauth/authorize?client_id=74468ad0847e527262d9" className="pb-2"> Login with Github </a> }
+					{ userData.name ? <div className="flex items-end gap-2 pb-2"> <div className="text-xs"> Logged in as: </div> <div>{userData.name}</div> </div> : <a href="https://github.com/login/oauth/authorize?client_id=Ov23lilvF2QoyDWyY4mr" className="pb-2"> Login with Github </a> /* 74468ad0847e527262d9 */ }
 					<div className="text-3xl py-10 text-center font-title">Tradam</div>
 					<div className="flex flex-col items-center gap-1">
 							<Button link={ <Link to="/" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">About Me</div></Link> }/>
