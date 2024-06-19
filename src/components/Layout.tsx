@@ -8,6 +8,7 @@ export default function Layout ({userData}: userData)
 	const loginLink = () => {
 		window.open(`https://github.com/login/oauth/authorize?client_id=${import.meta.env.VITE_GITHUB_CLIENTID}`);
 	};
+	console.log(userData);
 	return (
 	<>
 		<div id="page" className="star flex flex-row min-h-screen max-h-screen bg-amber-400 text-stone-950 text-xl bg-star bg-repeat bg-[length:170px_170px]">
