@@ -5,6 +5,7 @@ import Blogs from "../components/Blogs";
 import Games from "../components/Games";
 import UploadGame from "../components/UploadGame";
 import Game from "../components/Game";
+import Apps from "../components/Apps";
 import Layout from "../components/Layout";
 import CloseWindow from "../components/CloseWindow";
 
@@ -45,6 +46,7 @@ export default function Index()
 			<Route path="/games" element={<Games />} />
 			<Route path="/games/upload" element={<UploadGame />} />
 			<Route path="/game/:game" element={<Game />} />
+			<Route path="/apps" element={<Apps />} />
 			<Route path="/closewindow" element={<CloseWindow />} />
 			</Route>
 			</Routes>

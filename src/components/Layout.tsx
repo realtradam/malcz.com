@@ -16,11 +16,12 @@ export default function Layout ({userData}: userData)
 				<nav id="sidebar-content" dir="rtl" className="text-stone-50 p-6 w-full h-screen overflow-y-auto overflow-x-hidden">
 		<div dir='ltr'>
 					{ userData.name ? <div className="flex items-end gap-2 pb-2"> <div className="text-xs"> Logged in as: </div> <div>{userData.name}</div> </div> : <a href="" onClick={loginLink} className="pb-2"> Login with Github </a> }
-					<div className="text-3xl py-10 text-center font-title">Tradam</div>
+					<div className="text-3xl py-10 text-center font-title">Adam <br/>Malczewski</div>
 					<div className="flex flex-col items-center gap-1">
 							<Button link={ <Link to="/" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">About Me</div></Link> }/>
-							<Button link={ <Link to="/blogs" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">Blog</div></Link> }/>
+							<Button link={ <Link to="/apps" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">Apps</div></Link> }/>
 							<Button link={ <Link to="/games" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">Games</div></Link> }/>
+							{/*<Button link={ <Link to="/blogs" className="absolute flex top-0 left-0 w-36 h-16 text-stone-50 bg-transparent justify-center items-center" role="button"><div className="h-min">Blog</div></Link> }/>*/}
 							<Button link={ <div className="text-stone-50 bg-transparent w-36 h-16 flex justify-center items-center">
 								<a id="contact" href="mailto:adam@malcz.com" className="w-36 h-16 relative text-center whitespace-nowrap flex justify-center items-center">
 								<div className="contact w-36 h-16 flex items-center justify-center">
