@@ -1,19 +1,17 @@
+import React from 'react';
+import { ReactComponent as HomeMD } from '../md/main.md';
 
 export default function Home () {
 	return(
 		<>
 		<div>
 		<div className="flex flex-col gap-16 max-w-6xl shrink">
-			<div className="title font-bold text-6xl font-title">Work In Progress</div>
+			<div className="title font-bold text-6xl font-title">Welcome</div>
 			<div className="">
 				<div className="jumbotron jumbotron-fluid bg-transparent">
-					<div className="container secondary-color">
-						<h1 className="text-2xl"> API at: { import.meta.env.VITE_API_TITLE } </h1>
-						<p className="">
-Ea optio vitae culpa voluptatem consectetur. Ab quisquam sed ipsum. Perspiciatis minus odit quas qui consequuntur dicta reiciendis a. Nihil minima sed aliquam.
-		</p>
-						<hr className="my-4" />
-				</div>
+					<div className="container secondary-color bg-stone-950 prose prose-invert marker:text-stone-50 p-8 rounded-xl">
+					<HomeMD />
+					</div>
 				</div>
 			</div>
 		</div>
