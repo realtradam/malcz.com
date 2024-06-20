@@ -1,4 +1,3 @@
-import React from 'react';
 import { ReactComponent as HomeMD } from '../md/main.md';
 
 export default function Home () {
