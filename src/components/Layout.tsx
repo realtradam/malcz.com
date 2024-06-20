@@ -1,4 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
+import { useState } from "react";
 import Button from "./Button";
 
 export type userData = { userData: { name: string } };
@@ -8,11 +9,30 @@ export default function Layout ({userData}: userData)
 	const loginLink = () => {
 		window.open(`https://github.com/login/oauth/authorize?client_id=${import.meta.env.VITE_GITHUB_CLIENTID}`);
 	};
-	console.log(userData);
+
+	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const [sidebarClosed, setSidebarClosed] = useState(false);
+	const [sidebarInit, setSidebarInit] = useState(true);
+	const handleSidebarOpen = () => {
+		if(sidebarInit) {
+			setSidebarOpen(true);
+			setSidebarInit(false);
+		}
+		else {
+			setSidebarOpen(!sidebarOpen);
+			setSidebarClosed(!sidebarClosed);
+		}
+	};
+
 	return (
 	<>
 		<div id="page" className="star flex flex-row min-h-screen max-h-screen bg-amber-400 text-stone-950 text-xl bg-star bg-repeat bg-[length:170px_170px]">
-			<div id="sidebar" className="dsm:hidden flex flex-row shrink-0 grow-0 h-vh w-64 items-top bg-stone-800">
+				<div onClick={handleSidebarOpen} className="fixed shadow-xl right-4 m-4 p-1 w-min h-min text-stone-50 bg-stone-800 rounded-[5px] z-[5]">
+				<div className="rounded-[5px] border-2 border-stone-50 border-amber-500">
+		<Button width={12} height={12} link={ <i className="fa-solid fa-bars"></i> }/>
+		</div>
+		</div>
+			<div id="sidebar" className={`${sidebarOpen ? 'sidebarOpen' : ''} ${sidebarClosed ? 'sidebarClosed' : ''} ${sidebarInit ? 'sidebarInit' : ''} dmd:fixed dmd:z-[4] relative flex flex-row shrink-0 grow-0 h-vh w-64 items-top bg-stone-800`}>
 				<nav id="sidebar-content" dir="rtl" className="text-stone-50 p-6 w-full h-screen overflow-y-auto overflow-x-hidden">
 		<div dir='ltr'>
 					{ userData.name ? <div className="flex items-end gap-2 pb-2"> <div className="text-xs"> Logged in as: </div> <div>{userData.name}</div> </div> : <a href="" onClick={loginLink} className="pb-2"> Login with Github </a> }
@@ -40,12 +60,13 @@ export default function Layout ({userData}: userData)
 					</div>
 		</div>
 				</nav>
-				<div id="sawtooth-wrap" className="sawtooth-left-wrap h-full">
+				<div id="sawtooth-wrap" className="dmd:relative dmd:h-screen z-[5] sawtooth-left-wrap h-full">
 					<div id="sawtooth" className="sawtooth-left w-4 h-full bg-amber-400"></div>
 				</div>
+				<div className="md:hidden h-full w-5 -right-5 absolute" style={{background: "linear-gradient(90deg, rgba(251,191,36,1) 0%, rgba(251,191,36,0) 100%)"}}></div>
 			</div>
 			<div id="radial-wrap" className="shrink w-full max-h-vh h-vh overflow-auto overflow-x-hidden">
-				<div id="content" className="flex justify-center items-center w-full p-20 dsm:px-4">	<Outlet /> </div>
+				<div id="content" className="flex justify-center items-center w-full py-20 px-14 dmd:px-6">	<Outlet /> </div>
 			</div>
 		</div>
 		</>

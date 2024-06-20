@@ -9,8 +9,45 @@
 @apply py-2 px-4 bg-blue-200;
 }
 }
-
  */
+
+@keyframes sidebar-enter {
+	from {
+		left: -16rem;
+	}
+	to {
+		left: 0;
+	}
+}
+
+@keyframes sidebar-exit {
+	from {
+		left: 0;
+	}
+	to {
+		left: -16rem;
+	}
+}
+
+.sidebarInit {
+	left: -16rem;
+}
+
+.sidebarOpen {
+	animation-name: sidebar-enter;
+	left: 0;
+}
+
+.sidebarClosed {
+	animation-name: sidebar-exit;
+	left: -16rem;
+}
+
+#sidebar {
+	animation-duration: 0.5s;
+	animation-iteration-count: 1;
+}
+
 .gameCard {
 	aspect-ratio: 5/7;
 	width: 300px;

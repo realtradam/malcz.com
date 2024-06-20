@@ -5,13 +5,6 @@ export default {
 		'./src/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
-		screens: {
-			'dsm': {'max':'640px'},
-			'dmd': {'max':'768px'},
-			'dlg': {'max':'1024px'},
-			'dxl': {'max':'1280px'},
-			'd2xl': {'max':'1536px'}
-		},
 		extend: {
 			backgroundImage: {
 				'star': "url('/star.png')",
@@ -19,6 +12,13 @@ export default {
 			padding: {
 				'5%': '5%'
 			},
+		screens: {
+			'dsm': {'max':'640px'},
+			'dmd': {'max':'768px'},
+			'dlg': {'max':'1024px'},
+			'dxl': {'max':'1280px'},
+			'd2xl': {'max':'1536px'}
+		},
 		},
 	},
 	plugins: [
@@ -28,6 +28,8 @@ export default {
 		//require('@tailwindcss/container-queries'),
 	],
 	safelist: [
+		'h-12',
+		'w-12',
 		'before:w-3',
 		'before:w-4'
 	]
