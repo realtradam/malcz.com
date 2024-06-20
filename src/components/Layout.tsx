@@ -27,12 +27,15 @@ export default function Layout ({userData}: userData)
 	return (
 	<>
 		<div id="page" className="star flex flex-row min-h-screen max-h-screen bg-amber-400 text-stone-950 text-xl bg-star bg-repeat bg-[length:170px_170px]">
-				<div onClick={handleSidebarOpen} className="md:hidden fixed shadow-xl right-4 m-4 p-1 w-min h-min text-stone-50 bg-stone-800 rounded-[5px] z-[5]">
-				<div className="rounded-[5px] border-2 border-stone-50 border-amber-500">
-		<Button width={12} height={12} link={ <i className="fa-solid fa-bars"></i> }/>
-		</div>
-		</div>
-			<div id="sidebar" className={`${sidebarOpen ? 'sidebarOpen' : ''} ${sidebarClosed ? 'sidebarClosed' : ''} ${sidebarInit ? 'sidebarInit' : ''} dmd:fixed dmd:z-[4] relative flex flex-row shrink-0 grow-0 h-vh w-64 items-top bg-stone-800`}>
+				<div onClick={handleSidebarOpen} className={`${sidebarOpen ? 'sidebarOpen' : ''} ${sidebarClosed ? 'sidebarClosed' : ''} ${sidebarInit ? 'sidebarInit' : ''} sidebar-animation flex items-center justify-center md:hidden fixed shadow-xl ml-[17rem] m-4 h-12 w-12 text-stone-50 bg-stone-800 rounded-[5px] z-[5]`}>
+				<div className={`${sidebarClosed || sidebarInit ? '' : 'hidden'} flex items-center justify-center`}>
+				<i className="fa-solid fa-chevron-right w-6 h-6"></i>	
+				</div>
+				<div className={`${sidebarOpen ? '' : 'hidden'} flex items-center justify-center`}>
+				<i className="fa-solid fa-chevron-left w-6 h-6"></i>
+				</div>
+			</div>
+			<div id="sidebar" className={`${sidebarOpen ? 'sidebarOpen' : ''} ${sidebarClosed ? 'sidebarClosed' : ''} ${sidebarInit ? 'sidebarInit' : ''} sidebar-animation dmd:fixed dmd:z-[4] relative flex flex-row shrink-0 grow-0 h-vh w-64 items-top bg-stone-800`}>
 				<nav id="sidebar-content" dir="rtl" className="text-stone-50 p-6 w-full h-screen overflow-y-auto overflow-x-hidden">
 		<div dir='ltr'>
 					{ userData.name ? <div className="flex items-end gap-2 pb-2"> <div className="text-xs"> Logged in as: </div> <div>{userData.name}</div> </div> : <a href="" onClick={loginLink} className="pb-2"> Login with Github </a> }

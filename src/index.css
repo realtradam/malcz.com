@@ -45,7 +45,7 @@
 		left: -16rem;
 	}
 
-	#sidebar {
+	.sidebar-animation {
 		animation-duration: 0.5s;
 		animation-iteration-count: 1;
 	}
