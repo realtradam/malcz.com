@@ -29,23 +29,26 @@
 	}
 }
 
-.sidebarInit {
-	left: -16rem;
-}
+@media (max-width: 768px)
+{
+	.sidebarInit {
+		left: -16rem;
+	}
 
-.sidebarOpen {
-	animation-name: sidebar-enter;
-	left: 0;
-}
+	.sidebarOpen {
+		animation-name: sidebar-enter;
+		left: 0;
+	}
 
-.sidebarClosed {
-	animation-name: sidebar-exit;
-	left: -16rem;
-}
+	.sidebarClosed {
+		animation-name: sidebar-exit;
+		left: -16rem;
+	}
 
-#sidebar {
-	animation-duration: 0.5s;
-	animation-iteration-count: 1;
+	#sidebar {
+		animation-duration: 0.5s;
+		animation-iteration-count: 1;
+	}
 }
 
 .gameCard {

@@ -27,7 +27,7 @@ export default function Layout ({userData}: userData)
 	return (
 	<>
 		<div id="page" className="star flex flex-row min-h-screen max-h-screen bg-amber-400 text-stone-950 text-xl bg-star bg-repeat bg-[length:170px_170px]">
-				<div onClick={handleSidebarOpen} className="fixed shadow-xl right-4 m-4 p-1 w-min h-min text-stone-50 bg-stone-800 rounded-[5px] z-[5]">
+				<div onClick={handleSidebarOpen} className="md:hidden fixed shadow-xl right-4 m-4 p-1 w-min h-min text-stone-50 bg-stone-800 rounded-[5px] z-[5]">
 				<div className="rounded-[5px] border-2 border-stone-50 border-amber-500">
 		<Button width={12} height={12} link={ <i className="fa-solid fa-bars"></i> }/>
 		</div>
