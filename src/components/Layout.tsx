@@ -12,7 +12,7 @@ export default function Layout ({userData}: userData)
 	return (
 	<>
 		<div id="page" className="star flex flex-row min-h-screen max-h-screen bg-amber-400 text-stone-950 text-xl bg-star bg-repeat bg-[length:170px_170px]">
-			<div id="sidebar" className="flex flex-row shrink-0 grow-0 h-vh w-64 items-top bg-stone-800">
+			<div id="sidebar" className="dsm:hidden flex flex-row shrink-0 grow-0 h-vh w-64 items-top bg-stone-800">
 				<nav id="sidebar-content" dir="rtl" className="text-stone-50 p-6 w-full h-screen overflow-y-auto overflow-x-hidden">
 		<div dir='ltr'>
 					{ userData.name ? <div className="flex items-end gap-2 pb-2"> <div className="text-xs"> Logged in as: </div> <div>{userData.name}</div> </div> : <a href="" onClick={loginLink} className="pb-2"> Login with Github </a> }
@@ -45,7 +45,7 @@ export default function Layout ({userData}: userData)
 				</div>
 			</div>
 			<div id="radial-wrap" className="shrink w-full max-h-vh h-vh overflow-auto overflow-x-hidden">
-				<div id="content" className="flex justify-center items-center w-full p-20">	<Outlet /> </div>
+				<div id="content" className="flex justify-center items-center w-full p-20 dsm:px-4">	<Outlet /> </div>
 			</div>
 		</div>
 		</>

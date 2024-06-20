@@ -5,6 +5,13 @@ export default {
 		'./src/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
+		screens: {
+			'dsm': {'max':'640px'},
+			'dmd': {'max':'768px'},
+			'dlg': {'max':'1024px'},
+			'dxl': {'max':'1280px'},
+			'd2xl': {'max':'1536px'}
+		},
 		extend: {
 			backgroundImage: {
 				'star': "url('/star.png')",
