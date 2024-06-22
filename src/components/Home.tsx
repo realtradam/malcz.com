@@ -1,4 +1,3 @@
-import { ReactComponent as HomeMD } from '../md/main.md';
 import { ReactComponent as WorkExperienceMD } from '../md/home_workexperience.md';
 import { ReactComponent as ProjectsMD } from '../md/home_projects.md';
 import { ReactComponent as EducationMD } from '../md/home_education.md';
