@@ -63,9 +63,9 @@ export default function Layout ({userData}: userData)
 								</a>	
 								</div> }/>
 							<div className="socials flex flex-row place-content-center gap-1">
-								<Button link={<a id="contact" href="https://github.com/realtradam" className="absolute flex top-0 left-0 w-10 h-16 text-stone-50 bg-transparent justify-center items-center"><i className="fa-brands fa-github"></i></a>} width={10} height={16} spinner={3}/>
-								<Button link={<a id="contact" href="https://www.linkedin.com/in/adammalczewski/" className="absolute flex top-0 left-0 w-10 h-16 text-stone-50 bg-transparent justify-center items-center"><i className="fa-brands fa-linkedin"></i></a>} width={10} height={16} spinner={3}/>
-								<Button link={<a id="contact" href="https://tradam.itch.io" className="absolute flex top-0 left-0 w-10 h-16 text-stone-50 bg-transparent justify-center items-center"><i className="fa-brands fa-itch-io"></i></a>} width={10} height={16} spinner={3}/>
+								<Button link={<a target="_blank" id="contact" href="https://github.com/realtradam" className="absolute flex top-0 left-0 w-10 h-16 text-stone-50 bg-transparent justify-center items-center"><i className="fa-brands fa-github"></i></a>} width={10} height={16} spinner={3}/>
+								<Button link={<a target="_blank" id="contact" href="https://www.linkedin.com/in/adammalczewski/" className="absolute flex top-0 left-0 w-10 h-16 text-stone-50 bg-transparent justify-center items-center"><i className="fa-brands fa-linkedin"></i></a>} width={10} height={16} spinner={3}/>
+								<Button link={<a target="_blank" id="contact" href="https://tradam.itch.io" className="absolute flex top-0 left-0 w-10 h-16 text-stone-50 bg-transparent justify-center items-center"><i className="fa-brands fa-itch-io"></i></a>} width={10} height={16} spinner={3}/>
 							</div>
 					</div>
 		</div>

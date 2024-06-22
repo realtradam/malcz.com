@@ -11,6 +11,10 @@
 }
  */
 
+.w-full-after div {
+	width: 100%;
+}
+
 @keyframes sidebar-enter {
 	from {
 		left: -16rem;

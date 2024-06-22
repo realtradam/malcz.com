@@ -24,17 +24,11 @@ export default function Games () {
 
 	return(
 		<>
-		<div>
 		<div className="flex flex-col gap-16 max-w-6xl shrink">
-			<div className="title font-bold text-6xl font-title">Games</div>
-				<div className="jumbotron jumbotron-fluid bg-transparent">
-					<div className="container secondary-color">
-				</div>
-			</div>
+			<div className="title text-center font-bold text-6xl font-title">Games</div>
 			<div className="flex flex-row flex-wrap gap-20 justify-around">
 			{ allGames }
 			</div>
-		</div>
 		</div>
 		</>
 	);
