@@ -28,11 +28,13 @@ export default function Games () {
 							<img style={{imageRendering: gameData?.img_rendering}} src={`${import.meta.env.VITE_API_TITLE}/api/v1/games_img/realtradam/${gameData?.titleSlug}.png?type=title`} className="gameTitleImg max-w-lg" />
 						</div>
 						<iframe style={{ aspectRatio: 1 }} className="bg-black aspect-square max-h-[90vh] rounded" src={`${import.meta.env.VITE_API_TITLE}/game/realtradam/${game}/index.html`} title={game}></iframe>
-						<div className="flex justify-center mt-4 px-12 py-16 overflow-y-auto rounded-xl bg-stone-950 ">
+						<div className="flex justify-center w-full">
+						<div className="flex justify-center mt-4 px-12 py-16 overflow-y-auto rounded-xl bg-stone-950 w-full max-w-[65ch]">
 						<ReactMarkdown
 							className="bg-stone-950 prose prose-invert marker:text-stone-50 dsm:py-10 dsm:px-4 rounded-xl"
 							children={gameData?.description}
 						/>
+						</div>
 						</div>
 				</div>
 			</div>
